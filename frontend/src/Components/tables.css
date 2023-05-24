@@ -1,0 +1,73 @@
+.date{
+    margin-left: 20px!important;
+}
+
+.btn-dis{
+    margin-left: auto;
+
+}
+.dat-d{
+margin-top: 20px;
+}
+.btn-dis1{
+    margin-left: 350px !important;
+    margin-top: 50px;
+}
+.div{
+    margin-top: 40px;
+}
+.btn-pur{
+    margin-left: 250px !important;
+    margin-top: -66px;
+    width: 70px !important;
+}
+.pur-a{
+    margin-top: -10px;
+    margin-right: 100px !important;
+}
+.r-dis{
+    margin-top: 55px;
+}
+.btn-dis2{
+    margin-left: 40%;
+}
+.t-pur{
+    background-color: rgb(5, 136, 62) !important;
+}
+.tab-dis{
+    padding-top: 50px;
+    margin-left: -70px;
+    width: 100%;
+}
+
+.h1-dis{
+    margin-left: -200px;
+    padding: 25px;
+    color: rgb(10, 130, 10);
+}
+.h2-dis{
+    margin-left: -200px;
+    padding: 12px;
+    color: rgb(2, 71, 2);
+}
+.lab-d{
+    margin-top: 20px!important;
+}
+
+.dis-side{
+}
+.inpt-d{
+    border-radius:none !important;
+    margin-left: 50px;
+    padding: 8px;
+}
+.inpt-r{
+    width: 100px !important;
+    height: 46px;
+    margin-left: 100px;
+    margin-top: -200px;
+    border-radius: 1px solid black;
+    font-size: 25px;
+    font-weight: bold;
+
+}

@@ -1,0 +1,50 @@
+.cat{
+    height:300px;
+    width: 25%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.tab-p{
+    background-color: yellow !important;
+}
+.ser{
+    margin-left: 30% !important;
+}
+.ser-col{
+    margin-top: 70px;
+}
+.btn-p{
+    float: right;
+    margin-right: 30px;
+    margin-top: 40px;
+    margin-bottom: -80px;
+}
+.inpt-catg{
+    margin-left: 10px !important;
+}
+.btn-b{
+    float: left;
+    margin-right: 30px;
+    margin-top: 40px;
+    margin-bottom: -80px;
+}
+.tab-it{
+    margin-top: 50px;
+}
+.itm{
+    margin-top: 50px;
+}
+.itm-c{
+    margin-left: 30%;
+    width: 60%;
+}
+.tab-col{
+    margin-top: 50px;
+    padding: 20px;
+    width: 90%;
+    margin-left: 60px;
+}
+.r-p{
+    margin-top: 50px;   
+    margin-left: 40px;
+}
