@@ -248,3 +248,6 @@ option{
  
   font-weight: bold !important;
 }
+.dis{ 
+  display: none; 
+}

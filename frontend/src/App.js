@@ -45,8 +45,18 @@ function App() {
       
 
 
-     
-      
+      {/* CREATE TABLE temp_table AS
+SELECT DISTINCT item, category
+FROM category;
+
+DELETE FROM category;
+
+INSERT INTO category (item, category)
+SELECT item, category
+FROM temp_table;
+
+DROP TABLE temp_table; */}
+      {/* alter table customer add UNIQUE(cusName); */}
     </div>
   );
 }

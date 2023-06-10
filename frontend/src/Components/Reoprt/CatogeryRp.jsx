@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
 import './report.css'
+
 import { useState,useEffect,useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 
@@ -12,9 +13,16 @@ export default function CatogeryRp() {
     let fdate=localStorage.getItem('fdate')
     let tdate=localStorage.getItem('tdate')
     const [data,sdata]=useState();
-   
+    const [data1,sdata1]=useState(0);
     const[query,setquery] = useState("")
     const componentRef = useRef();
+    let a=0;
+    let b=0;
+    let c=0;
+    let d=0;
+    let et=0;
+    let f=0;
+    let g=0;
 
     useEffect(() => {
         axios.get("http://localhost:3002/disp/result",{
@@ -73,7 +81,15 @@ export default function CatogeryRp() {
               </tr>
             </thead>
             <tbody>
-          {data.filter((e)=>e.category.includes(query.toLocaleUpperCase())).map((e)=>{return(
+          {data.filter((e)=>e.category.includes(query.toLocaleUpperCase())).map((e)=>{
+           
+            b+=e.purchase_amount;
+            c+=e.RMK_amount
+            d+=e.RMD_amount;
+            et+=e.RMKCET_amount;
+            f+=e.RMKSCHOOL_amount;
+            g+=e.total_amount;
+            return(
           <tr>
             <td>{e.category}</td>
             <td>{(e.purchase_amount).toFixed(2)}</td>
@@ -83,9 +99,18 @@ export default function CatogeryRp() {
             <td>{e.RMKSCHOOL_amount.toFixed(2)}</td>
            <td>{e.total_amount.toFixed(2)}</td>
             </tr>
-
+         
             )})}
-        
+            
+            <tr>
+            <td>TOTAL</td>
+            <td>{b}</td>
+            <td>{c}</td>
+            <td>{d}</td>
+            <td>{et}</td>
+            <td>{f}</td>
+           <td>{g}</td>
+            </tr>
             </tbody>
           </Table>
         </div>

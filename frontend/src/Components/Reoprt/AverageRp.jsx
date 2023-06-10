@@ -5,8 +5,6 @@ import { Table } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import ReactToPrint from 'react-to-print';
-
-
 export default function Average() {
     let fdate=localStorage.getItem('fdate')
     let tdate=localStorage.getItem('tdate')
@@ -31,13 +29,16 @@ export default function Average() {
             sdata(response.data)
             setStartDate(fdate);
             setEndDate(tdate);
-            calculateMonths();
+           
             
         });
 
     },[])
     
   
+    useEffect(() => {
+      calculateMonths();
+    }, [startDate, endDate]);
   
 
   
@@ -45,8 +46,6 @@ export default function Average() {
       const start = new Date(startDate);
       const end = new Date(endDate);
       const monthList = [];
-      const Lmon = ["Jan_Quantity","Jan_Amount"];
-  
       let currentDate = new Date(start);
   
       while ( currentDate.getFullYear() < end.getFullYear() ||
@@ -54,7 +53,7 @@ export default function Average() {
     ) {
         const month = currentDate.toLocaleString('default', { month: 'long' });
         const year = currentDate.getFullYear();
-        const formattedMonth = `${month} ${year}`;
+        const formattedMonth = `${month}`;
   
         monthList.push(formattedMonth);
   
@@ -113,7 +112,7 @@ console.log(data)
         <div className='col-12 tab-it' ref={componentRef}>
           <Table >
             <thead>
-              <tr>
+              <tr> 
                 <th scope="col"  rowspan="2">ITEM</th>
                 {months.map((e)=>{return(
                   <th scope='col' colSpan="2">{e}</th>
@@ -139,7 +138,7 @@ console.log(data)
             {Array.from({ length: inputCount }, (_, index) => (
         <React.Fragment key={index}>
           <th scope="col">Qty</th>
-          <th scope="col">amt</th>
+          <th scope="col">amt</th> 
         </React.Fragment>
       ))}
             </thead>
@@ -149,32 +148,32 @@ console.log(data)
     return (
       <tr>
         <td>{e.item}</td>
-        {e.Jan_Quantity !== 0 && <td>{e.Jan_Quantity.toFixed(2)}</td>}
-        {e.Jan_Amount !== 0 && <td>{e.Jan_Amount.toFixed(2)}</td>}
-        {e.Feb_Quantity !== 0 && <td>{e.Feb_Quantity.toFixed(2)}</td>}
-        {e.Feb_Amount !== 0 && <td>{e.Feb_Amount.toFixed(2)}</td>}
-        {e.Mar_Quantity !== 0 && <td>{e.Mar_Quantity.toFixed(2)}</td>}
-        {e.Mar_Amount !== 0 && <td>{e.Mar_Amount.toFixed(2)}</td>}
-        {e.Apr_Quantity !== 0 && <td>{e.Apr_Quantity.toFixed(2)}</td>}
-        {e.Apr_Amount !== 0 && <td>{e.Apr_Amount.toFixed(2)}</td>}
-        {e.May_Quantity !== 0 && <td>{e.May_Quantity.toFixed(2)}</td>}
-        {e.May_Amount !== 0 && <td>{e.May_Amount.toFixed(2)}</td>}
-        {e.Jun_Quantity !== 0 && <td>{e.Jun_Quantity.toFixed(2)}</td>}
-        {e.Jun_Amount !== 0 && <td>{e.Jun_Amount.toFixed(2)}</td>}
-        {e.Jul_Quantity !== 0 && <td>{e.Jul_Quantity.toFixed(2)}</td>}
-        {e.Jul_Amount !== 0 && <td>{e.Jul_Amount.toFixed(2)}</td>}
-        {e.Aug_Quantity !== 0 && <td>{e.Aug_Quantity.toFixed(2)}</td>}
-        {e.Aug_Amount !== 0 && <td>{e.Aug_Amount.toFixed(2)}</td>}
-        {e.Sep_Quantity !== 0 && <td>{e.Sep_Quantity.toFixed(2)}</td>}
-        {e.Sep_Amount !== 0 && <td>{e.Sep_Amount.toFixed(2)}</td>}
-        {e.Oct_Quantity !== 0 && <td>{e.Oct_Quantity.toFixed(2)}</td>}
-        {e.Oct_Amount !== 0 && <td>{e.Oct_Amount.toFixed(2)}</td>}
-        {e.Nov_Quantity !== 0 && <td>{e.Nov_Quantity.toFixed(2)}</td>}
-        {e.Nov_Amount !== 0 && <td>{e.Nov_Amount.toFixed(2)}</td>}
-        {e.Dec_Quantity !== 0 && <td>{e.Dec_Quantity.toFixed(2)}</td>}
-        {e.Dec_Amount !== 0 && <td>{e.Dec_Amount.toFixed(2)}</td>}
+        {   <td className={months.indexOf("January")+1==0 ? "dis":"active"} >{e.Jan_Quantity.toFixed(2)}</td>}
+        { <td className={months.indexOf("January")+1==0? "dis":"active"}>{e.Jan_Amount.toFixed(2)}</td>}
+        {  <td className={months.indexOf("February")+1==0? "dis":"active"} >{e.Feb_Quantity.toFixed(2)}</td>}
+        { <td className={months.indexOf("February")+1==0? "dis":"active"}>{e.Feb_Amount.toFixed(2)}</td>} 
+        { <td className={months.indexOf("March")+1==0? "dis":"active"}>{e.Mar_Quantity.toFixed(2)}</td>}
+        { <td className={months.indexOf("March")+1==0? "dis":"active"}>{e.Mar_Amount.toFixed(2)}</td>}
+        {<td className={months.indexOf("Apirl")+1==0? "dis":"active"}>{e.Apr_Quantity.toFixed(2)}</td>}
+        { <td className={months.indexOf("Apirl")+1==0? "dis":"active"}>{e.Apr_Amount.toFixed(2)}</td>} 
+        {<td className={months.indexOf("May")+1==0? "dis":"active"}>{e.May_Quantity.toFixed(2)}</td>}
+        {<td className={months.indexOf("May")+1==0? "dis":"active"}>{e.May_Amount.toFixed(2)}</td>} 
+        { <td className={months.indexOf("June")+1==0? "dis":"active"}>{e.Jun_Quantity.toFixed(2)}</td>}
+        {<td className={months.indexOf("June")+1==0? "dis":"active"}>{e.Jun_Amount.toFixed(2)}</td>} 
+        {<td className={months.indexOf("July")+1==0? "dis":"active"}>{e.Jul_Quantity.toFixed(2)}</td>}
+        {<td className={months.indexOf("July")+1==0? "dis":"active"}>{e.Jul_Amount.toFixed(2)}</td>}
+        { <td className={months.indexOf("August")+1==0? "dis":"active"}>{e.Aug_Quantity.toFixed(2)}</td>}  
+        {<td className={months.indexOf("August")+1==0? "dis":"active"}>{e.Aug_Amount.toFixed(2)}</td>}
+        {  <td className={months.indexOf("September")+1==0? "dis":"active"}>{e.Sep_Quantity.toFixed(2)}</td>}
+        { <td className={months.indexOf("September")+1==0? "dis":"active"}>{e.Sep_Amount.toFixed(2)}</td>}
+        { <td className={months.indexOf("October")+1==0? "dis":"active"}>{e.Oct_Quantity.toFixed(2)}</td>} 
+        { <td className={months.indexOf("Obctober")+1==0? "dis":"active"}>{e.Oct_Amount.toFixed(2)}</td>}
+        {  <td className={months.indexOf("November")+1==0? "dis":"active"}>{e.Nov_Quantity.toFixed(2)}</td>}
+        {  <td className={months.indexOf("November")+1==0? "dis":"active"}>{e.Nov_Amount.toFixed(2)}</td>} 
+        {  <td className={months.indexOf("December")+1==0? "dis":"active"}>{e.Dec_Quantity.toFixed(2)}</td>}
+        {  <td className={months.indexOf("December")+1==0? "dis":"active"}>{e.Dec_Amount.toFixed(2)}</td>}
       </tr>
-    );
+    ); 
   })}
 </tbody>
 
